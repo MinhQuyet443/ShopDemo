@@ -13,7 +13,7 @@ namespace ShopDemo.Controllers
             _context = context;
         }
 
-        // 🛒 THANH TOÁN
+        // 🛒 THANH TOÁNNNN
         [HttpPost]
         public IActionResult Checkout(List<int> selectedItems, Dictionary<int, int> quantities, string paymentMethod)
         {
