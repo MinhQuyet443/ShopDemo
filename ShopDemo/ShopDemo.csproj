@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Views\kk\" />
-    <Folder Include="Views\BAO\" />
   </ItemGroup>
 
 </Project>
