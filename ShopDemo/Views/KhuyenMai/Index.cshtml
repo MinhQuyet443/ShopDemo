@@ -1,0 +1,20 @@
+﻿@model List<KhuyenMai>
+
+<h2>Khuyến mãi</h2>
+
+<a href="/KhuyenMai/Create">➕ Thêm</a>
+
+<table border="1">
+    <tr>
+        <th>Tên</th>
+        <th>% giảm</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TenKM</td>
+            <td>@item.PhanTram</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,47 @@
+﻿@model List<CartViewModel>
+
+<h2>🛒 Giỏ hàng</h2>
+
+<form method="post" action="/Order/Checkout">
+
+    <table class="table">
+        <tr>
+            <th>Chọn</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="selectedItems" value="@item.MaSP" />
+                </td>
+
+                <td>@item.TenSP</td>
+
+                <td>@item.DonGia</td>
+
+                <td>
+                    <input type="number"
+                           name="quantities[@item.MaSP]"
+                           value="@item.SoLuong"
+                           min="1" />
+                </td>
+            </tr>
+        }
+    </table>
+
+    <select name="paymentMethod"> class="form-control">
+        <option value="COD">Thanh toán khi nhận hàng</option>
+        <option value="ONLINE">Thanh toán online</option>
+    </select>
+
+    <br /><br />
+
+    <button type="submit" class="btn btn-success">
+        🛒 Thanh toán
+    </button>
+
+</form>

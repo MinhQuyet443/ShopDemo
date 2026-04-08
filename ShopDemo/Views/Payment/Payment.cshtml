@@ -1,0 +1,21 @@
+﻿<h2>💳 Thanh toán online</h2>
+
+<form method="post" action="/Order/ConfirmPayment">
+
+    <p>Chọn phương thức:</p>
+
+    <button type="button" class="btn btn-primary">VNPay</button>
+    <button type="button" class="btn btn-danger">Momo</button>
+
+    <h3 class="mt-3">Nhập thông tin thẻ (demo)</h3>
+
+    <input name="cardNumber" placeholder="Số thẻ" class="form-control mb-2" />
+    <input name="cardName" placeholder="Tên chủ thẻ" class="form-control mb-2" />
+    <input name="expiry" placeholder="MM/YY" class="form-control mb-2" />
+    <input name="cvv" placeholder="CVV" class="form-control mb-2" />
+
+    <button type="submit" class="btn btn-success mt-2">
+        ✅ Xác nhận thanh toán
+    </button>
+
+</form>

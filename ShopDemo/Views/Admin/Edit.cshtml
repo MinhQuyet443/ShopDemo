@@ -1,0 +1,45 @@
+﻿@model SanPham
+
+<h2>SỬA SẢN PHẨM</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="MaSP" />
+
+    <div>
+        <label>Tên</label>
+        <input asp-for="TenSP" class="form-control" />
+    </div>
+
+    <div>
+        <label>Danh mục</label>
+        <select asp-for="MaDM" asp-items="ViewBag.DanhMuc" class="form-control"></select>
+    </div>
+
+    <div>
+        <label>Giá</label>
+        <input asp-for="GiaTien" class="form-control" />
+    </div>
+
+    <div>
+        <label>Màu</label>
+        <input asp-for="Mau" class="form-control" />
+    </div>
+
+    <div>
+        <label>Dung lượng</label>
+        <input asp-for="DungLuong" class="form-control" />
+    </div>
+
+    <div>
+        <label>Mô tả</label>
+        <textarea asp-for="MoTa" class="form-control"></textarea>
+    </div>
+
+    <div>
+        <label>Link ảnh</label>
+        <input asp-for="Anh" class="form-control" />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Lưu</button>
+</form>

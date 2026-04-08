@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<SanPham>
+
+@{
+    var maquyen = Context.Session.GetInt32("MaQuyen");
+}
+
+<h2>QUẢN LÝ SẢN PHẨM</h2>
+
+@if (maquyen == 1)
+{
+    <a href="/Admin/Create">➕ Thêm sản phẩm</a>
+}
+
+<table border="1" style="width:100%">
+    <tr>
+        <th>Mã</th>
+        <th>Tên</th>
+        <th>Danh mục</th>
+        <th>Giá</th>
+        <th>Màu</th>
+        <th>Dung lượng</th>
+        <th>Ảnh</th>
+        <th>Hành động</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSP</td>
+            <td>@item.TenSP</td>
+            <td>@item.MaDM</td>
+            <td>@item.GiaTien</td>
+            <td>@item.Mau</td>
+            <td>@item.DungLuong</td>
+            <td>
+                @if (maquyen == 1)
+                {
+                    <a href="/Admin/Edit/@item.MaSP">Sửa</a>
+                    <a href="/Admin/Delete/@item.MaSP">Xóa</a>
+                }
+                else
+                {
+                    <span>Không có quyền</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
