@@ -5,40 +5,51 @@
 <form method="post" action="/Order/Checkout">
 
     <table class="table">
-        <tr>
-            <th>Chọn</th>
-            <th>Tên</th>
-            <th>Giá</th>
-            <th>Số lượng</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td>
-                    <input type="checkbox" name="selectedItems" value="@item.MaSP" />
-                </td>
-
-                <td>@item.TenSP</td>
-
-                <td>@item.DonGia</td>
-
-                <td>
-                    <input type="number"
-                           name="quantities[@item.MaSP]"
-                           value="@item.SoLuong"
-                           min="1" />
-                </td>
+                <th>Chọn</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
             </tr>
-        }
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <!-- Checkbox -->
+                    <td>
+                        <input type="checkbox" name="selectedItems" value="@item.MaSP" />
+                    </td>
+
+                    <!-- Tên -->
+                    <td>@item.TenSP</td>
+
+                    <!-- Giá -->
+                    <td>@item.DonGia</td>
+
+                    <!-- Số lượng -->
+                    <td>
+                        <input type="number"
+                               name="quantities[@item.MaSP]"
+                               value="@item.SoLuong"
+                               min="1"
+                               class="form-control" />
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 
-    <select name="paymentMethod"> class="form-control">
-        <option value="COD">Thanh toán khi nhận hàng</option>
-        <option value="ONLINE">Thanh toán online</option>
-    </select>
-
-    <br /><br />
+    <!-- Phương thức thanh toán -->
+    <div class="mb-3">
+        <label>Phương thức thanh toán</label>
+        <select name="paymentMethod" class="form-control">
+            <option value="COD">Thanh toán khi nhận hàng</option>
+            <option value="ONLINE">Thanh toán online</option>
+        </select>
+    </div>
 
     <button type="submit" class="btn btn-success">
         🛒 Thanh toán

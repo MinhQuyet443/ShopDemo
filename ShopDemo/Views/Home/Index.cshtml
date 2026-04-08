@@ -41,9 +41,9 @@
             <div class="col-md-3 mb-4">
                 <div class="card shadow-sm">
 
-                    <img src="https://via.placeholder.com/200"
-                         class="card-img-top"
-                         style="height:200px; object-fit:cover;" />
+                            <img src="~/images/@sp.HinhAnh"
+                                 class="card-img-top img-fluid"
+                                 style="height:200px; width:100%; object-fit:cover;" />
 
                     <div class="card-body text-center">
                         <h5>@sp.TenSP</h5>
@@ -58,9 +58,12 @@
                                     🛒 Thêm vào giỏ
                                 </button>
 
-                        <button class="btn btn-danger w-100 mt-2">
-                            ⚡ Mua ngay
-                        </button>
+                                <form action="/Order/BuyNow" method="post">
+                                    <input type="hidden" name="productId" value="@sp.MaSP" />
+                                    <button type="submit" class="btn btn-danger w-100 mt-2">
+                                        ⚡ Mua ngay
+                                    </button>
+                                </form>
                     </div>
 
                 </div>

@@ -1,0 +1,34 @@
+﻿@model ShopDemo.Models.SanPham
+
+<div class="container mt-4">
+    <h2>⚡ Thanh toán</h2>
+
+    <h4>@Model.TenSP</h4>
+    <p class="text-danger">@Model.GiaTien VNĐ</p>
+
+    <form action="/Order/PlaceOrderNow" method="post">
+        <input type="hidden" name="productId" value="@Model.MaSP" />
+
+        <div class="mb-3">
+            <label>SĐT</label>
+            <input type="text" name="phone" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Địa chỉ</label>
+            <input type="text" name="address" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Thanh toán</label>
+            <select name="paymentMethod" class="form-control">
+                <option value="COD">Thanh toán khi nhận hàng</option>
+                <option value="ONLINE">Thanh toán online</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            ✅ Xác nhận đặt hàng
+        </button>
+    </form>
+</div>

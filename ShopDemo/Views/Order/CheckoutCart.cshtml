@@ -1,0 +1,38 @@
+﻿@model List<ShopDemo.Models.GioHang>
+
+<div class="container mt-4">
+    <h2>🧾 Thanh toán</h2>
+
+    <form action="/Order/PlaceOrderCart" method="post">
+
+        @foreach (var item in Model)
+        {
+            <input type="hidden" name="selectedItems" value="@item.MaSP" />
+            <input type="hidden" name="quantities[@item.MaSP]" value="@item.SoLuong" />
+
+            <p>SP: @item.MaSP - SL: @item.SoLuong</p>
+        }
+
+        <div class="mb-3">
+            <label>SĐT</label>
+            <input type="text" name="phone" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Địa chỉ</label>
+            <input type="text" name="address" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Thanh toán</label>
+            <select name="paymentMethod" class="form-control">
+                <option value="COD">COD</option>
+                <option value="ONLINE">Online</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            ✅ Đặt hàng
+        </button>
+    </form>
+</div>
